@@ -81,7 +81,7 @@ export default {
       const keydown = e => onSpaceOrEnter(e, click);
       const isDisabled = isPrev ? !this.canMovePrev : !this.canMoveNext;
       return h(
-        'div',
+        'button',
         {
           class: [
             'vc-arrow',
@@ -89,7 +89,7 @@ export default {
             { 'is-disabled': isDisabled },
           ],
           attrs: {
-            role: 'button',
+            'aria-label': `${isPrev ? 'Previous month' : 'Next month'}`,
           },
           on: {
             click,
