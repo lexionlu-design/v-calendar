@@ -89,7 +89,8 @@ export default {
             { 'is-disabled': isDisabled },
           ],
           attrs: {
-            'aria-label': `${isPrev ? 'Previous month' : 'Next month'}`,
+            'aria-label': `${isPrev ? 'Previous Months' : 'Next Months'}`,
+            'aria-disabled': String(isDisabled)
           },
           on: {
             click,
@@ -104,6 +105,9 @@ export default {
               props: {
                 name: isPrev ? 'left-arrow' : 'right-arrow',
               },
+              attrs: {
+                'aria-hidden': 'true',
+              }
             }),
         ],
       );
