@@ -20,7 +20,7 @@ export default {
         [
           // Header title
           h(
-            'div',
+            'h2',
             {
               class: 'vc-title',
               on: this.navPopoverEvents,

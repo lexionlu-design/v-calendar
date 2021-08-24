@@ -188,12 +188,23 @@ export default {
       } else if (this.day.inMonth) {
         tabindex = '-1';
       }
-      return {
+      let props = {
         tabindex,
         'aria-label': this.day.ariaLabel,
         'aria-disabled': this.day.isDisabled ? 'true' : 'false',
         role: 'button',
       };
+      const isAriaCurrent = !!this.day.attributes.find(({key})=>key==='today');
+      if (isAriaCurrent) {
+        props['aria-current'] = 'date';
+      }
+      const isAriaSelected = !!this.day.attributes.find(({key})=>key==='select-drag');
+      if (isAriaSelected) {
+        props['aria-selected'] = 'true';
+      } else {
+        props['aria-selected'] = 'false';
+      }
+      return props;
     },
     dayEvent() {
       return {
