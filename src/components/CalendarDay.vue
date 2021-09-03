@@ -191,12 +191,12 @@ export default {
       let isCurrent = false;
       let isSelected = false;
       if (this.day.attributes.length) {
-        isCurrent = Boolean(this.day.attributes.reduce((result, item) => {
-          return result || item.key === 'today'
-        }, false))
-        isSelected = Boolean(this.day.attributes.reduce((result, item) => {
-          return result || item.key === 'select-drag'
-        }, false))
+        isCurrent = Boolean(this.day.attributes.reduce(
+          (result, item) => result || item.key === 'today',
+        false));
+        isSelected = Boolean(this.day.attributes.reduce(
+          (result, item) => result || item.key === 'select-drag',
+        false));
       }
       return {
         tabindex,
