@@ -190,7 +190,7 @@ export default {
       }
       let isCurrent = false;
       let isSelected = false;
-      if (this.day.attributes.length) {
+      if (this.day.attributes) {
         isCurrent = Boolean(this.day.attributes.reduce(
           (result, item) => result || item.key === 'today',
         false));
