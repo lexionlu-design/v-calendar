@@ -188,11 +188,23 @@ export default {
       } else if (this.day.inMonth) {
         tabindex = '-1';
       }
+      let isCurrent = false;
+      let isSelected = false;
+      if (this.day.attributes) {
+        isCurrent = Boolean(this.day.attributes.reduce(
+          (result, item) => result || item.key === 'today',
+        false));
+        isSelected = Boolean(this.day.attributes.reduce(
+          (result, item) => result || item.key === 'select-drag',
+        false));
+      }
       return {
         tabindex,
         'aria-label': this.day.ariaLabel,
         'aria-disabled': this.day.isDisabled ? 'true' : 'false',
         role: 'button',
+        'aria-current': isCurrent ? 'date' : false,
+        'aria-selected': isSelected ? 'true' : 'false',
       };
     },
     dayEvent() {
